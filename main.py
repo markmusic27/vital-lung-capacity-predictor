@@ -54,3 +54,27 @@ cost = tf.reduce_sum(tf.square(Y-model))/(2*m)
 optimizer = tf.train.GradientDescentOptimizer(alpha).minimize(cost)
 
 init = tf.global_variables_initializer()
+
+with tf.Session() as sess:
+    sess.run(init)
+    for i in range(epochs):
+        print((i/400)*100)
+        sess.run(optimizer, feed_dict={X: x_train, Y: y_train})
+        loss = sess.run(cost, feed_dict={X: x_train, Y: y_train})
+        errors.append(loss)
+    theta1, theta2, theta3 = sess.run([theta_1, theta_2, theta_3])
+
+# plt.plot(list(range(epochs)), errors)
+# plt.title("Cost vs Iteration")
+# plt.show()
+
+x = scaler.transform(x)
+pred = theta1 * x**2 + theta2 * x + theta3
+
+plt.plot(x, pred, 'red', label="Prediction")
+plt.plot(x, y, 'blue', label="True Values")
+plt.legend()
+plt.title("Salary vs Position")
+plt.show()
+
+print("R2 Correlation: ", r2(y, pred))
