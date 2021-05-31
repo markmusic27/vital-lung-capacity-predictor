@@ -74,7 +74,7 @@ pred = theta1 * x**2 + theta2 * x + theta3
 plt.plot(x, pred, 'red', label="Prediction")
 plt.plot(x, y, 'blue', label="True Values")
 plt.legend()
-plt.title("Salary vs Position")
+plt.title("Age vs Vital Lung Capacity")
 plt.show()
 
 print("R2 Correlation: ", r2(y, pred))
