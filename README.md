@@ -1,6 +1,6 @@
 # `Vital Lung Capacity Predictor`
 
-🫁 A polynomial regression model used to predict the vital lung capacity (VLC) of an individual given their age.
+🫁 A polynomial regression model used to predict the vital lung capacity (VC) of an individual given their age.
 
 ### Purpose
 
